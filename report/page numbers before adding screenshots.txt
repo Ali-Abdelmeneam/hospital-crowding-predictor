@@ -1,0 +1,34 @@
+chapter 4 Design implementation testing 15
+4.1 overview p15
+4.2 software development approach 16
+4.2.1 used approach  p16
+4.2.2 justification of the used approach  p17
+4.2.3 phases of the chosen model approach p17
+4.2.4 why is it better than the other approaches p17
+4.2.5 alternative approach p17
+4.3 changes in design p18
+4.3.1 changes in the functional requirements  p18
+4.3.2 changes in the non-functional requirements  p18
+4.3.3 changes in Diagrams p18
+4.3.4 changes in software requirments p18
+4.3.5 software modeling tools used p19
+4.3.6 specifications that distinguish this software from others p19
+4.4 implementations  p20
+4.4.1 user interface p20
+4.4.2 code and implementation p23
+4.4.3 testing p26
+4.5 Evaluations  p27
+4.6 summary  p29
+Chapter 5 Results and discussion p30
+5.1 overview p30
+5.2 Critical discussion p30
+5.3 Skills acquired from the project p31
+5.4 Development goals and results  p32
+5.4.1 Finding and results   p33
+5.4.2 Project goals  p34
+5.5 Future works  p32
+5.5.1 New area of investigation  p33
+5.5.2 Features were not completed due to time constraints p33
+5.6 Summary of the chapter   p33
+Chapter 6 conclusion p35
+References p36

@@ -1,0 +1,55 @@
+import streamlit as st
+import pandas as pd
+import joblib
+
+# Load the trained model
+model = joblib.load('crowding_model.pkl')
+
+# Set the title
+st.title("🏥 Hospital Crowding Predictor")
+st.markdown("Enter hospital section details below to predict crowding in 6 months.")
+
+# Input form
+with st.form("input_form"):
+    total_hospital_beds = st.number_input("Total Hospital Beds", min_value=0)
+    available_hospital_beds = st.number_input("Available Hospital Beds", min_value=0)
+    potentially_available_hospital_beds = st.number_input("Potentially Available Hospital Beds", min_value=0)
+    total_icu_beds = st.number_input("Total ICU Beds", min_value=0)
+    available_icu_beds = st.number_input("Available ICU Beds", min_value=0)
+    projected_infected_individuals = st.number_input("Projected Infected Individuals", min_value=0)
+    adult_population = st.number_input("Adult Population", min_value=0)
+    population_65 = st.number_input("Population 65+", min_value=0)
+
+    submitted = st.form_submit_button("Predict")
+
+# Predict when form is submitted
+if submitted:
+    # Create DataFrame from inputs
+    input_data = pd.DataFrame([[
+        total_hospital_beds,
+        available_hospital_beds,
+        potentially_available_hospital_beds,
+        total_icu_beds,
+        available_icu_beds,
+        projected_infected_individuals,
+        adult_population,
+        population_65
+    ]], columns=[
+        'total_hospital_beds',
+        'available_hospital_beds',
+        'potentially_available_hospital_beds',
+        'total_icu_beds',
+        'available_icu_beds',
+        'projected_infected_individuals',
+        'adult_population',
+        'population_65'
+    ])
+
+    # Make prediction
+    prediction = model.predict(input_data)[0]
+
+    # Display result
+    if prediction == 1:
+        st.error("🚨 Prediction: This section is likely to be CROWDED in 6 months.")
+    else:
+        st.success("✅ Prediction: This section is NOT likely to be crowded in 6 months.")
